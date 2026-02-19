@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout Ebook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="checkout-box">
+  <h2>Checkout Ebook Premium</h2>
+  <p id="ebookName"></p>
+
+  <div class="payment">
+    <h3>Pembayaran Transfer Bank</h3>
+    <p>Bank Seabank / Bank Kesejahteraan Ekonomi</p>
+    <p><b>AHMAD BARIZI</b></p>
+    <p>901981495649</p>
+    <p>Kode Bank: 535</p>
+    <p>SWIFT: SSPIIDJA</p>
+  </div>
+
+  <a id="waBtn" class="btn gold">Konfirmasi via WhatsApp</a>
+</div>
+
+<footer>
+© 2026 Ahmad Barizi. Seluruh hak cipta dilindungi undang-undang.
+</footer>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const ebook = params.get('ebook');
+
+document.getElementById("ebookName").innerText = "Ebook: " + ebook;
+
+const message = `Halo saya ingin membeli ebook: ${ebook}`;
+const waLink = "https://wa.me/6285175313909?text=" + encodeURIComponent(message);
+document.getElementById("waBtn").href = waLink;
+</script>
+
+</body>
+</html>
