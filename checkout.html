@@ -3,24 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout</title>
+<title>Checkout Ebook</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="checkout-box">
-  <h2>Checkout Pembayaran</h2>
+  <h2>Checkout Pembelian Ebook 📚</h2>
 
   <div id="listCheckout"></div>
 
-  <div class="payment">
-    <h3>Transfer Bank</h3>
-    <p>Bank Seabank / Bank Kesejahteraan Ekonomi</p>
-    <p><b>AHMAD BARIZI</b></p>
-    <p>901981495649</p>
-    <p>Kode Bank: 535</p>
-    <p>SWIFT: SSPIIDJA</p>
-  </div>
+  <hr style="margin:20px 0;">
+
+  <h3>Punya Kode Kupon?</h3>
+  <input type="text" id="coupon" placeholder="Masukkan kode kupon..." class="input">
+  <button onclick="applyCoupon()" class="btn outline">Gunakan Kupon</button>
+
+  <p id="discountInfo" style="margin-top:10px;color:gold;"></p>
+
+  <hr style="margin:20px 0;">
+
+  <h3>Metode Pembayaran</h3>
+  <p>Transfer Bank SeaBank / Bank Kesejahteraan Ekonomi</p>
+  <p><b>Nama:</b> AHMAD BARIZI</p>
+  <p><b>No Rekening:</b> 901981495649</p>
+  <p><b>Kode Bank:</b> 535</p>
+  <p><b>SWIFT:</b> SSPIIDJA</p>
+
+  <br>
 
   <a id="waBtn" class="btn gold">Konfirmasi via WhatsApp</a>
 </div>
@@ -31,8 +41,60 @@
 
 <script src="cart.js"></script>
 <script>
+let totalFinal = 0;
+let discount = 0;
+
+function renderCheckout(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let list="";
+  let total=0;
+  let pesan="Halo saya ingin membeli:%0A";
+
+  cart.forEach(item=>{
+    list+=`<p>${item.nama} - Rp${item.harga.toLocaleString()}</p>`;
+    total+=item.harga;
+    pesan+=`• ${item.nama}%0A`;
+  });
+
+  totalFinal = total;
+
+  list+=`<h3>Total: Rp${total.toLocaleString()}</h3>`;
+  document.getElementById("listCheckout").innerHTML=list;
+
+  updateWA(pesan,totalFinal);
+}
+
+function applyCoupon(){
+  const code = document.getElementById("coupon").value.trim();
+  const info = document.getElementById("discountInfo");
+
+  if(code === "BARIZI99"){
+    discount = totalFinal * 0.1; // diskon 10%
+    totalFinal -= discount;
+    info.innerText = "Kupon aktif! Diskon 10% berhasil diterapkan 💎";
+  } else {
+    discount = 0;
+    info.innerText = "Kode kupon tidak valid ❌";
+  }
+
+  updateWA("Halo saya ingin membeli:%0A", totalFinal);
+}
+
+function updateWA(pesan,total){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.forEach(item=>{
+    pesan+=`• ${item.nama}%0A`;
+  });
+
+  pesan+=`Total Bayar: Rp${total.toLocaleString()}`;
+
+  let wa="https://wa.me/6285175313909?text="+encodeURIComponent(pesan);
+  document.getElementById("waBtn").href=wa;
+}
+
 renderCheckout();
 </script>
 
 </body>
-                        </html>
+    </html>
