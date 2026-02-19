@@ -3,29 +3,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keranjang Belanja</title>
-<link rel="stylesheet" href="style.css">
+<title>Keranjang | Toko-Digital</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0b0b;
+  color: #fff;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: gold;
+}
+
+.cart-item {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px rgba(255,215,0,0.1);
+}
+
+.cart-item h3 {
+  margin: 0 0 10px 0;
+}
+
+.cart-item p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.gold {
+  background: linear-gradient(45deg, gold, orange);
+  color: #000;
+}
+
+.danger {
+  background: #ff3b3b;
+  color: white;
+  margin-top: 10px;
+}
+
+.checkout-btn {
+  width: 100%;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.total {
+  text-align: right;
+  font-size: 20px;
+  color: gold;
+  margin-top: 20px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 14px;
+  color: #777;
+}
+</style>
 </head>
+
 <body>
 
-<div class="checkout-box">
-  <h2>Keranjang Ebook 🛒</h2>
+<div class="container">
+  <h1>🛒 Keranjang Belanja</h1>
 
   <div id="cartItems"></div>
-  <h3 id="totalHarga"></h3>
+  <div id="totalPrice" class="total"></div>
 
-  <div style="margin-top:20px;">
-    <button onclick="clearCart()" class="btn outline">Kosongkan Keranjang</button>
-    <a href="checkout.html" class="btn gold">Lanjut ke Checkout</a>
+  <button onclick="checkoutWhatsApp()" class="btn gold checkout-btn">
+    💳 Checkout via WhatsApp
+  </button>
+
+  <div class="footer">
+    Hak undang-undang dilindungi 2026
   </div>
 </div>
 
-<footer>
-© 2026 Ahmad Barizi. Seluruh hak cipta dilindungi undang-undang.
-</footer>
-
-<script src="cart.js"></script>
 <script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCart() {
+  const cartContainer = document.getElementById("cartItems");
+  const totalContainer = document.getElementById("totalPrice");
+
+  cartContainer.innerHTML = "";
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = "<p>Keranjang masih kosong...</p>";
+    totalContainer.innerHTML = "";
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    cartContainer.innerHTML += `
+      <div class="cart-item">
+        <h3>${item.name}</h3>
+        <p>Harga: Rp ${item.price.toLocaleString()}</p>
+        <button onclick="removeItem(${index})" class="btn danger">Hapus</button>
+      </div>
+    `;
+  });
+
+  totalContainer.innerHTML = "Total: Rp " + total.toLocaleString();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function checkoutWhatsApp() {
+  if (cart.length === 0) {
+    alert("Keranjang masih kosong!");
+    return;
+  }
+
+  let pesan = "Halo Admin Toko-Digital, saya ingin membeli ebook:%0A%0A";
+  let total = 0;
+
+  cart.forEach((item, i) => {
+    pesan += `${i + 1}. ${item.name} - Rp ${item.price.toLocaleString()}%0A`;
+    total += item.price;
+  });
+
+  pesan += `%0ATotal: Rp ${total.toLocaleString()}%0A`;
+  pesan += "%0APembayaran via transfer Seabank 🙏";
+
+  const nomorAdmin = "6285175313909";
+  const url = `https://wa.me/${nomorAdmin}?text=${pesan}`;
+
+  window.open(url, "_blank");
+}
+
 renderCart();
 </script>
 
