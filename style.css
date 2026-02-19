@@ -1,1 +1,104 @@
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#0a0a0f;
+  color:#eee;
+}
 
+.header{
+  text-align:center;
+  padding:60px 20px;
+  background:linear-gradient(180deg,#000,#0d0d1a);
+}
+
+.header h1{
+  font-size:42px;
+  color:gold;
+  margin:0;
+}
+
+.header p{
+  color:#bbb;
+}
+
+.top-buttons{
+  margin-top:20px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px;
+  padding:40px;
+}
+
+.card{
+  background:#111;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(255,215,0,0.1);
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+}
+
+.card h3{
+  margin:15px 0 10px;
+  color:#fff;
+}
+
+.price span{
+  text-decoration:line-through;
+  color:#888;
+  margin-right:10px;
+}
+
+.price{
+  color:gold;
+  font-size:20px;
+  margin-bottom:15px;
+}
+
+.btn{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.gold{
+  background:gold;
+  color:black;
+}
+
+.outline{
+  border:1px solid gold;
+  color:gold;
+}
+
+.checkout-box{
+  max-width:500px;
+  margin:80px auto;
+  padding:30px;
+  background:#111;
+  border-radius:16px;
+  text-align:center;
+}
+
+.payment{
+  margin:20px 0;
+  background:#0a0a14;
+  padding:15px;
+  border-radius:12px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#777;
+  font-size:14px;
+}
