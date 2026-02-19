@@ -6,7 +6,6 @@
 <title>Toko-Digital Premium</title>
 <link rel="stylesheet" href="style.css">
 </head>
-  <div id="toast" class="toast">Berhasil ditambahkan ke keranjang 🛒</div>
 <body>
 
 <header class="header">
@@ -16,62 +15,77 @@
   <div class="top-buttons">
     <a href="https://s.id/ahmadbarizi" class="btn gold">Portofolio</a>
     <a href="https://toco.id/link/mmsT5wDFGP1kn9QbCmPDE4" class="btn outline">Lihat Karya Ebooks</a>
-    <a href="cart.html" class="btn gold">🛒 Keranjang</a>
+
+    <!-- Tombol Keranjang + Badge -->
+    <a href="cart.html" class="btn gold cart-btn">
+      🛒 Keranjang <span id="cartCount" class="badge">0</span>
+    </a>
   </div>
 </header>
 
 <section class="products">
 
-<div class="card">
-  <img src="assets/img/hakikat-quantum-ihsan.png">
-  <h3>Hakikat Quantum Ihsan</h3>
-  <p class="price"><span>Rp199k</span> Rp99k</p>
-  <button onclick="addToCart('Hakikat Quantum Ihsan',99000)" class="btn gold">Tambah ke Keranjang</button>
-</div>
+  <!-- Ebook 1 -->
+  <div class="card">
+    <img src="assets/img/hakikat-quantum-ihsan.png">
+    <h3>Hakikat Quantum Ihsan</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
 
-<div class="card">
-  <img src="assets/img/the-art-of-surrender.png">
-  <h3>The Art of Surrender</h3>
-  <p class="price"><span>Rp199k</span> Rp99k</p>
-  <button onclick="addToCart('The Art of Surrender',99000)" class="btn gold">Tambah ke Keranjang</button>
-</div>
+    <a href="product.html?nama=Hakikat Quantum Ihsan&img=hakikat-quantum-ihsan.png" class="btn outline">Lihat Detail</a>
+    <button onclick="addToCart('Hakikat Quantum Ihsan',99000)" class="btn gold">Tambah ke Keranjang</button>
+  </div>
 
-<div class="card">
-  <img src="assets/img/law-of-spiritual-attraction.png">
-  <h3>Law of Spiritual Attraction</h3>
-  <p class="price"><span>Rp199k</span> Rp99k</p>
-  <button onclick="addToCart('Law of Spiritual Attraction',99000)" class="btn gold">Tambah ke Keranjang</button>
-</div>
+  <!-- Ebook 2 -->
+  <div class="card">
+    <img src="assets/img/the-art-of-surrender.png">
+    <h3>The Art of Surrender</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
 
-<div class="card">
-  <img src="assets/img/membongkar-realitas-hologram.png">
-  <h3>Membongkar Realitas Hologram</h3>
-  <p class="price"><span>Rp199k</span> Rp99k</p>
-  <button onclick="addToCart('Membongkar Realitas Hologram',99000)" class="btn gold">Tambah ke Keranjang</button>
-</div>
+    <a href="product.html?nama=The Art of Surrender&img=the-art-of-surrender.png" class="btn outline">Lihat Detail</a>
+    <button onclick="addToCart('The Art of Surrender',99000)" class="btn gold">Tambah ke Keranjang</button>
+  </div>
 
-<div class="card">
-  <img src="assets/img/quantum-syukur.png">
-  <h3>Quantum Syukur</h3>
-  <p class="price"><span>Rp199k</span> Rp99k</p>
-  <button onclick="addToCart('Quantum Syukur',99000)" class="btn gold">Tambah ke Keranjang</button>
-</div>
+  <!-- Ebook 3 -->
+  <div class="card">
+    <img src="assets/img/law-of-spiritual-attraction.png">
+    <h3>Law of Spiritual Attraction</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
+
+    <a href="product.html?nama=Law of Spiritual Attraction&img=law-of-spiritual-attraction.png" class="btn outline">Lihat Detail</a>
+    <button onclick="addToCart('Law of Spiritual Attraction',99000)" class="btn gold">Tambah ke Keranjang</button>
+  </div>
+
+  <!-- Ebook 4 -->
+  <div class="card">
+    <img src="assets/img/membongkar-realitas-hologram.png">
+    <h3>Membongkar Realitas Hologram</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
+
+    <a href="product.html?nama=Membongkar Realitas Hologram&img=membongkar-realitas-hologram.png" class="btn outline">Lihat Detail</a>
+    <button onclick="addToCart('Membongkar Realitas Hologram',99000)" class="btn gold">Tambah ke Keranjang</button>
+  </div>
+
+  <!-- Ebook 5 -->
+  <div class="card">
+    <img src="assets/img/quantum-syukur.png">
+    <h3>Quantum Syukur</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
+
+    <a href="product.html?nama=Quantum Syukur&img=quantum-syukur.png" class="btn outline">Lihat Detail</a>
+    <button onclick="addToCart('Quantum Syukur',99000)" class="btn gold">Tambah ke Keranjang</button>
+  </div>
 
 </section>
 
 <footer>
 © 2026 Ahmad Barizi. Seluruh hak cipta dilindungi undang-undang.
 </footer>
-<!-- Tombol Keranjang + Badge -->
-<a href="cart.html" class="btn gold cart-btn">
-  🛒 Keranjang <span id="cartCount" class="badge">0</span>
-</a>
 
 <!-- Toast Notifikasi -->
 <div id="toast" class="toast">Berhasil ditambahkan ke keranjang 🛒</div>
 
 <!-- Script Keranjang -->
 <script src="cart.js"></script>
-<script src="cart.js"></script
+
 </body>
 </html>
