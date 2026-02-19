@@ -1,8 +1,14 @@
+function showToast(){
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(()=> toast.classList.remove("show"), 2500);
+}
+
 function addToCart(nama,harga){
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push({nama,harga});
   localStorage.setItem("cart",JSON.stringify(cart));
-  alert("Ditambahkan ke keranjang");
+  showToast();
 }
 
 function renderCart(){
@@ -15,7 +21,7 @@ function renderCart(){
     total+=item.harga;
   });
 
-  document.getElementById("cartItems").innerHTML=html;
+  document.getElementById("cartItems").innerHTML=html || "<p>Keranjang masih kosong</p>";
   document.getElementById("totalHarga").innerText="Total: Rp"+total.toLocaleString();
 }
 
@@ -36,4 +42,4 @@ function renderCheckout(){
 
   let wa="https://wa.me/6285175313909?text="+pesan;
   document.getElementById("waBtn").href=wa;
-    }
+}
