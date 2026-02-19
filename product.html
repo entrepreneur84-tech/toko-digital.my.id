@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Ebook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <h1 id="judulEbook">Detail Ebook</h1>
+  <a href="cart.html" class="btn gold cart-btn">
+    🛒 Keranjang <span id="cartCount" class="badge">0</span>
+  </a>
+</header>
+
+<section class="checkout-box">
+  <img id="coverEbook" src="" style="width:100%;border-radius:14px;margin-bottom:20px;">
+  
+  <h2 id="title"></h2>
+  <p class="price"><span>Rp199k</span> Rp99k</p>
+
+  <p id="deskripsi">
+    Ebook premium spiritual & quantum consciousness yang membahas kesadaran,
+    realitas hologram, hukum tarik spiritual, dan transformasi batin menuju
+    kelimpahan tanpa batas.
+  </p>
+
+  <button id="addBtn" class="btn gold">Tambah ke Keranjang</button>
+  <a href="checkout.html" class="btn outline">Beli Sekarang</a>
+</section>
+
+<footer>
+© 2026 Ahmad Barizi. Seluruh hak cipta dilindungi undang-undang.
+</footer>
+
+<div id="toast" class="toast">Berhasil ditambahkan ke keranjang 🛒</div>
+
+<script src="cart.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const nama = params.get("nama");
+const img = params.get("img");
+
+document.getElementById("title").innerText = nama;
+document.getElementById("judulEbook").innerText = nama;
+document.getElementById("coverEbook").src = "assets/img/" + img;
+
+document.getElementById("addBtn").onclick = function(){
+  addToCart(nama, 99000);
+};
+</script>
+
+</body>
+</html>
