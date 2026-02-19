@@ -2,6 +2,11 @@ function getCart(){
   return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
+function saveCart(cart){
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateBadge();
+}
+
 function updateBadge(){
   const count = getCart().length;
   const badge = document.getElementById("cartCount");
@@ -18,9 +23,21 @@ function showToast(){
 function addToCart(nama,harga){
   let cart = getCart();
   cart.push({nama,harga});
-  localStorage.setItem("cart",JSON.stringify(cart));
-  updateBadge();
+  saveCart(cart);
   showToast();
+}
+
+function removeItem(index){
+  let cart = getCart();
+  cart.splice(index,1);
+  saveCart(cart);
+  renderCart();
+}
+
+function clearCart(){
+  localStorage.removeItem("cart");
+  renderCart();
+  updateBadge();
 }
 
 function renderCart(){
@@ -29,12 +46,20 @@ function renderCart(){
   let total=0;
 
   cart.forEach((item,i)=>{
-    html+=`<p>${item.nama} - Rp${item.harga.toLocaleString()}</p>`;
+    html+=`
+      <div class="cart-item">
+        <span>${item.nama} - Rp${item.harga.toLocaleString()}</span>
+        <button onclick="removeItem(${i})" class="btn outline small">Hapus</button>
+      </div>
+    `;
     total+=item.harga;
   });
 
-  document.getElementById("cartItems").innerHTML = html || "<p>Keranjang masih kosong</p>";
-  document.getElementById("totalHarga").innerText = "Total: Rp"+total.toLocaleString();
+  document.getElementById("cartItems").innerHTML =
+    html || "<p>Keranjang masih kosong</p>";
+
+  document.getElementById("totalHarga").innerText =
+    "Total: Rp"+total.toLocaleString();
 }
 
 function renderCheckout(){
