@@ -1,18 +1,30 @@
+function getCart(){
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function updateBadge(){
+  const count = getCart().length;
+  const badge = document.getElementById("cartCount");
+  if(badge) badge.innerText = count;
+}
+
 function showToast(){
   const toast = document.getElementById("toast");
+  if(!toast) return;
   toast.classList.add("show");
   setTimeout(()=> toast.classList.remove("show"), 2500);
 }
 
 function addToCart(nama,harga){
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = getCart();
   cart.push({nama,harga});
   localStorage.setItem("cart",JSON.stringify(cart));
+  updateBadge();
   showToast();
 }
 
 function renderCart(){
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = getCart();
   let html="";
   let total=0;
 
@@ -21,12 +33,12 @@ function renderCart(){
     total+=item.harga;
   });
 
-  document.getElementById("cartItems").innerHTML=html || "<p>Keranjang masih kosong</p>";
-  document.getElementById("totalHarga").innerText="Total: Rp"+total.toLocaleString();
+  document.getElementById("cartItems").innerHTML = html || "<p>Keranjang masih kosong</p>";
+  document.getElementById("totalHarga").innerText = "Total: Rp"+total.toLocaleString();
 }
 
 function renderCheckout(){
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = getCart();
   let list="";
   let total=0;
   let pesan="Halo saya ingin membeli:%0A";
@@ -43,3 +55,5 @@ function renderCheckout(){
   let wa="https://wa.me/6285175313909?text="+pesan;
   document.getElementById("waBtn").href=wa;
 }
+
+document.addEventListener("DOMContentLoaded", updateBadge);
