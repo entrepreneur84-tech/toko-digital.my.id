@@ -1,233 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toko-Digital | Ebook Spiritual Premium</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #050505;
-      color: #fff;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: radial-gradient(circle at top, #111 0%, #000 70%);
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      color: gold;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: #ccc;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn-gold {
-      background: gold;
-      color: black;
-    }
-
-    .btn-gold:hover {
-      background: #ffd700;
-      transform: scale(1.05);
-    }
-
-    .btn-wa {
-      background: #25D366;
-      color: white;
-    }
-
-    .btn-wa:hover {
-      transform: scale(1.05);
-    }
-
-    .section-title {
-      text-align: center;
-      margin: 60px 0 30px;
-      font-size: 28px;
-      color: gold;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      padding: 0 20px 60px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .product-card {
-      background: #0b0b0b;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      border: 1px solid #1a1a1a;
-      transition: 0.3s;
-      position: relative;
-    }
-
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-    }
-
-    .badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: gold;
-      color: black;
-      padding: 4px 10px;
-      font-size: 12px;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    .product-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .product-card h3 {
-      font-size: 18px;
-      margin: 10px 0;
-      color: #fff;
-    }
-
-    .price {
-      margin: 10px 0 15px;
-    }
-
-    .old-price {
-      text-decoration: line-through;
-      color: #888;
-      margin-right: 8px;
-    }
-
-    .new-price {
-      color: gold;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #000;
-      border-top: 1px solid #111;
-      color: #888;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toko-Digital | Premium Ebook Spiritual</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Perpustakaan Spiritual Premium</h1>
-    <p>Karya Transformasi Kesadaran & Kelimpahan Tanpa Batas</p>
+<header class="header">
+  <h1>Toko-Digital 🌑💎</h1>
+  <p>Ebook Premium Dark Spiritual & Quantum Consciousness</p>
 
-    <a href="https://toco.id/link/mmsT5wDFGP1kn9QbCmPDE4" class="btn btn-gold" target="_blank">
-      Lihat Karya Ebook
-    </a>
+  <div class="top-buttons">
+    <a href="https://s.id/ahmadbarizi" class="btn gold">Portofolio</a>
+    <a href="https://toco.id/link/mmsT5wDFGP1kn9QbCmPDE4" class="btn outline">Lihat Karya Ebooks</a>
+  </div>
+</header>
 
-    <a href="https://wa.me/6285175313909" class="btn btn-wa" target="_blank">
-      Konsultasi via WhatsApp
-    </a>
-  </section>
+<section class="products">
 
-  <!-- PRODUK -->
-  <h2 class="section-title">Ebook Premium</h2>
+  <!-- PRODUCT 1 -->
+  <div class="card">
+    <img src="assets/img/hakikat-quantum-ihsan.png">
+    <h3>Hakikat Quantum Ihsan</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
+    <a href="checkout.html?ebook=Hakikat Quantum Ihsan" class="btn gold">Checkout</a>
+  </div>
 
-  <section class="products">
+  <!-- PRODUCT 2 -->
+  <div class="card">
+    <img src="assets/img/the-art-of-surrender.png">
+    <h3>The Art of Surrender</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
+    <a href="checkout.html?ebook=The Art of Surrender" class="btn gold">Checkout</a>
+  </div>
 
-    <!-- 1 -->
-    <div class="product-card">
-      <span class="badge">PROMO</span>
-      <img src="assets/img/ebooks/hakikat-quantum-ihsan.png">
-      <h3>Hakikat Quantum Ihsan</h3>
-      <div class="price">
-        <span class="old-price">Rp199.000</span>
-        <span class="new-price">Rp99.000</span>
-      </div>
-      <a href="product/hakikat-quantum-ihsan.html" class="btn btn-gold">Lihat Detail</a>
-    </div>
+  <!-- PRODUCT 3 -->
+  <div class="card">
+    <img src="assets/img/law-of-spiritual-attraction.png">
+    <h3>Law of Spiritual Attraction</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
+    <a href="checkout.html?ebook=Law of Spiritual Attraction" class="btn gold">Checkout</a>
+  </div>
 
-    <!-- 2 -->
-    <div class="product-card">
-      <span class="badge">PROMO</span>
-      <img src="assets/img/ebooks/the-art-of-surrender.png">
-      <h3>The Art of Surrender</h3>
-      <div class="price">
-        <span class="old-price">Rp199.000</span>
-        <span class="new-price">Rp99.000</span>
-      </div>
-      <a href="product/the-art-of-surrender.html" class="btn btn-gold">Lihat Detail</a>
-    </div>
+  <!-- PRODUCT 4 -->
+  <div class="card">
+    <img src="assets/img/membongkar-realitas-hologram.png">
+    <h3>Membongkar Realitas Hologram</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
+    <a href="checkout.html?ebook=Membongkar Realitas Hologram" class="btn gold">Checkout</a>
+  </div>
 
-    <!-- 3 -->
-    <div class="product-card">
-      <span class="badge">PROMO</span>
-      <img src="assets/img/ebooks/law-of-spiritual-attraction.png">
-      <h3>Law of Spiritual Attraction</h3>
-      <div class="price">
-        <span class="old-price">Rp199.000</span>
-        <span class="new-price">Rp99.000</span>
-      </div>
-      <a href="product/law-of-spiritual-attraction.html" class="btn btn-gold">Lihat Detail</a>
-    </div>
+  <!-- PRODUCT 5 -->
+  <div class="card">
+    <img src="assets/img/quantum-syukur.png">
+    <h3>Quantum Syukur</h3>
+    <p class="price"><span>Rp199k</span> Rp99k</p>
+    <a href="checkout.html?ebook=Quantum Syukur" class="btn gold">Checkout</a>
+  </div>
 
-    <!-- 4 -->
-    <div class="product-card">
-      <span class="badge">PROMO</span>
-      <img src="assets/img/ebooks/membongkar-realitas-hologram.png">
-      <h3>Membongkar Realitas Hologram</h3>
-      <div class="price">
-        <span class="old-price">Rp199.000</span>
-        <span class="new-price">Rp99.000</span>
-      </div>
-      <a href="product/membongkar-realitas-hologram.html" class="btn btn-gold">Lihat Detail</a>
-    </div>
+</section>
 
-    <!-- 5 -->
-    <div class="product-card">
-      <span class="badge">PROMO</span>
-      <img src="assets/img/ebooks/quantum-syukur.png">
-      <h3>Quantum Syukur</h3>
-      <div class="price">
-        <span class="old-price">Rp199.000</span>
-        <span class="new-price">Rp99.000</span>
-      </div>
-      <a href="product/quantum-syukur.html" class="btn btn-gold">Lihat Detail</a>
-    </div>
-
-  </section>
-
-  <footer>
-    © 2026 Toko-Digital | Karya Spiritual Premium Ahmad Barizi
-  </footer>
+<footer>
+© 2026 Ahmad Barizi. Seluruh hak cipta dilindungi undang-undang.
+</footer>
 
 </body>
 </html>
